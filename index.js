@@ -116,8 +116,8 @@ mongoose.connect(process.env.MONGO_URL)
       res.status(500).json('error');
     }
   });
-  
-  const server = app.listen(4000);
+  const PORT=process.env.PORT || 4000
+  const server = app.listen(PORT);
   
   const wss = new ws.WebSocketServer({server});
   wss.on('connection', (connection, req) => {
